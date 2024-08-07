@@ -1,0 +1,16 @@
+@font-face {
+  font-family: roboto;
+  src: url(./fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: roboto-bold;
+  src: url(./fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: roboto-med;
+  src: url(./fonts/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: noto-naskh;
+  src: url(./fonts/NotoNaskhArabic-Regular.ttf);
+}
