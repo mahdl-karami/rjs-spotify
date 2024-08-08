@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import ARTIST from "../services/artist";
 import { useEffect, useState } from "react";
-import { MdVerified } from "react-icons/md";
+import Banner from "../components/Banner";
 
 function Artist() {
   const artistId = useParams().artistId;
@@ -16,18 +16,7 @@ function Artist() {
 
   return (
     <div className="artist-profile">
-      <div className="banner">
-        <div>
-          <img src={artist?.images[0].url} alt="" />
-        </div>
-        <div>
-          <span>
-            Verified Artist <MdVerified />
-          </span>
-          <h1>{artist?.name}</h1>
-          <p>Folowers : {artist?.followers.total}</p>
-        </div>
-      </div>
+      <Banner artist={artist} />
     </div>
   );
 }
