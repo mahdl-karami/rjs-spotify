@@ -5,13 +5,12 @@ import ACCESS_TOKEN from "./services/accessToken";
 //? import helpers
 import setCookie from "./helpers/setCookie";
 import getCookie from "./helpers/getCookie";
-import getArtists from "./services/artists";
-import ARTISTS from "./services/artists";
+// import ARTISTS from "./services/artists";
 
 function App() {
   //! set states
   const [accessToken, setAccessToken] = useState(getCookie("accessToken"));
-  const [artists, setArtists] = useState([]);
+  // const [artists, setArtists] = useState([]);
   //! fetch access token from accounts.spotify.com/api/token or use from cookies
   useEffect(() => {
     if (accessToken) {
@@ -29,18 +28,18 @@ function App() {
         .catch((err) => console.log(err));
     }
   }, []);
-  //! fetch artists data from spotify api
-  useEffect(() => {
-    if (accessToken) {
-      const { URL, DATA } = ARTISTS;
-      fetch(URL, {
-        ...DATA,
-      })
-        .then((res) => res.json())
-        .then((json) => setArtists(json))
-        .catch((err) => console.log(err));
-    }
-  }, [accessToken]);
+  // //! fetch artists data from spotify api
+  // useEffect(() => {
+  //   if (accessToken) {
+  //     const { URL, DATA } = ARTISTS;
+  //     fetch(URL, {
+  //       ...DATA,
+  //     })
+  //       .then((res) => res.json())
+  //       .then((json) => setArtists(json))
+  //       .catch((err) => console.log(err));
+  //   }
+  // }, [accessToken]);
   //! jsx
   return (
     <div>
