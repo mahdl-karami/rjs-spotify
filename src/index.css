@@ -1,7 +1,13 @@
 :root {
+  --mainBG: #0a0a0a;
+  --mainText: #fdfdfdd1;
+  --primary: #181818;
+  --secondary: #242424;
+
   font-family: roboto, noto-naskh, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  background: var(--mainBG);
   /* 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -42,7 +48,7 @@ body {
 .sidebar {
   position: fixed;
   min-height: 100vh;
-  background: #0800ff;
+  background: transparent;
   margin-right: 0.5rem;
 }
 .sidebar-box {
@@ -52,10 +58,10 @@ body {
   align-items: center;
   margin-top: 0.5rem;
   border-radius: 10px;
-  background: #181818;
+  background: var(--primary);
 
   svg {
-    color: #ffffffb1 !important;
+    color: var(--mainText) !important;
     font-size: 38px;
   }
 }
@@ -69,7 +75,7 @@ body {
   border-radius: 5px;
   transition: background 0.3s linear;
   &:hover {
-    background: #242424;
+    background: var(--secondary);
   }
 }
 .artist-image {
