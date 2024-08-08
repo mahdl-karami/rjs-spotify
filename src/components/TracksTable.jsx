@@ -5,6 +5,7 @@ function TracksTable({ artistId }) {
   const [topTracks, setTopTracks] = useState([]);
   useEffect(() => {
     const { URL, DATA } = TRACKS(artistId);
+    setTopTracks([]);
     fetch(URL, { ...DATA })
       .then((res) => res.json())
       .then((json) => {
@@ -19,7 +20,7 @@ function TracksTable({ artistId }) {
         <div>
           <p>{index}</p>
           <div>
-            <img src={track.album.images[0].url} alt="" />
+            <img src={track.album.images[2].url} alt="" />
             <h3>{track.name}</h3>
           </div>
           <p>5:55</p>
