@@ -4,12 +4,12 @@ import { MdVerified } from "react-icons/md";
 function Banner({ artist }) {
   return (
     <div className="banner">
-      <div>
+      <div className="banner-image">
         <img src={artist?.images[0].url} alt="" />
       </div>
-      <div>
+      <div className="banner-text">
         <span>
-          Verified Artist <MdVerified />
+          <MdVerified /> Verified Artist
         </span>
         <h1>{artist?.name}</h1>
         <p>Folowers : {artist?.followers.total}</p>
