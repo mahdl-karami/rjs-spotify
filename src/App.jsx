@@ -16,6 +16,7 @@ function App() {
     if (accessToken) {
       console.log("accessToken is ready");
     } else {
+      setLoading(true);
       const { URL, DATA } = ACCESS_TOKEN;
       fetch(URL, {
         ...DATA,

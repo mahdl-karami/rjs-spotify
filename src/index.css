@@ -80,6 +80,26 @@ main {
     font-size: 38px;
   }
 }
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.sidebar-loading {
+  padding: 1rem;
+  svg {
+    animation: spin 4s infinite linear;
+  }
+}
+.sidebar-error {
+  padding: 1rem;
+  svg {
+    color: red !important;
+  }
+}
 .artists {
   height: calc(100vh - calc(3rem + 96px));
 }
@@ -153,7 +173,7 @@ main {
     padding: 1.2rem 0;
   }
 }
-.tracks-table{
+.tracks-table {
   height: calc(calc(100vh - 1rem) - 320px);
   overflow-y: scroll;
 }

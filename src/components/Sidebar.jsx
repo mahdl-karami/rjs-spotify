@@ -4,17 +4,20 @@ import { useEffect, useState } from "react";
 import ARTISTS from "../services/artists";
 //? import icons
 import { GoSearch, GoHome } from "react-icons/go";
+import { PiSpinner } from "react-icons/pi";
+import { MdOutlineErrorOutline } from "react-icons/md";
 //? react router dom
 import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [artists, setArtists] = useState([]);
-  const [loading, setLoading] = useState(!artists.length);
-  const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(!artists.artists);
+  const [err, setErr] = useState(false);
   useEffect(() => {
     if (artists.length) {
       console.log("artists is ready");
     } else {
+      setLoading(true);
       const { URL, DATA } = ARTISTS;
       fetch(URL, { ...DATA })
         .then((res) => res.json())
@@ -26,12 +29,6 @@ function Sidebar() {
     }
   }, []);
   //! jsx
-  if (err) {
-    return <h2>we Have Err : {err.toString()}</h2>;
-  }
-  if (loading) {
-    return <h2>Loading ... (fetch artists)</h2>;
-  }
   return (
     <div className="sidebar">
       <div className="sidebar-box">
@@ -45,15 +42,36 @@ function Sidebar() {
         </div>
       </div>
       <div className="sidebar-box artists">
-        {artists?.artists.map(({ images, name, id }, index) => (
-          <Link key={index} to={`/artist/${id}`}>
-            <div className="sidebar-btn">
-              <div className="artist-image">
-                <img src={images[0].url} alt={name + " profile image"} />
-              </div>
+        {/*//! error */}
+        {err && !loading && (
+          <div className="sidebar.btn">
+            <div className="sidebar-error">
+              <MdOutlineErrorOutline />
             </div>
-          </Link>
-        ))}
+          </div>
+        )}
+        {/*//! loading */}
+        {loading && (
+          <div className="sidebar.btn">
+            <div className="sidebar-loading">
+              <PiSpinner />
+            </div>
+          </div>
+        )}
+        {/*//! success */}
+        {!loading && !err && (
+          <>
+            {artists?.artists?.map(({ images, name, id }, index) => (
+              <Link key={index} to={`/artist/${id}`}>
+                <div className="sidebar-btn">
+                  <div className="artist-image">
+                    <img src={images[0].url} alt={name + " profile image"} />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
