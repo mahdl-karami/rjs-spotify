@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 //? import route components
 import App from "./App.jsx";
 import Root from "./routes/Root.jsx";
+import Artist from "./routes/Artist.jsx";
 //? react router dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //? global styles
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/artist/:artistId",
-        element: <h1>Artist Page</h1>
+        element: <Artist />
       }
     ],
   },

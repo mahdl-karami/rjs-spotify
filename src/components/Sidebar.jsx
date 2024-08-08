@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import ARTISTS from "../services/artists";
 //? import icons
 import { GoSearch, GoHome } from "react-icons/go";
+//? react router dom
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [artists, setArtists] = useState([]);
@@ -33,20 +35,24 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-box">
-        <div className="sidebar-btn">
-          <GoHome />
-        </div>
+        <Link to="/">
+          <div className="sidebar-btn">
+            <GoHome />
+          </div>
+        </Link>
         <div className="sidebar-btn">
           <GoSearch />
         </div>
       </div>
       <div className="sidebar-box artists">
-        {artists?.artists.map(({ images, name }, index) => (
-          <div key={index} className="sidebar-btn">
-            <div className="artist-image">
-              <img src={images[0].url} alt={name + " profile image"} />
+        {artists?.artists.map(({ images, name, id }, index) => (
+          <Link key={index} to={`/artist/${id}`}>
+            <div className="sidebar-btn">
+              <div className="artist-image">
+                <img src={images[0].url} alt={name + " profile image"} />
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
