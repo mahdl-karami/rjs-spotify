@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import ARTIST from "../services/artist";
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
+import TracksTable from "../components/TracksTable";
 
 function Artist() {
   const artistId = useParams().artistId;
@@ -17,6 +18,7 @@ function Artist() {
   return (
     <div className="artist-profile">
       <Banner artist={artist} />
+      <TracksTable  artistId={artistId}/>
     </div>
   );
 }
