@@ -31,15 +31,21 @@ function Sidebar() {
     return <h2>Loading ... (fetch artists)</h2>;
   }
   return (
-    <div>
-      <div>
-        <GoHome />
-        <GoSearch />
+    <div className="sidebar">
+      <div className="sidebar-box">
+        <div className="sidebar-btn">
+          <GoHome />
+        </div>
+        <div className="sidebar-btn">
+          <GoSearch />
+        </div>
       </div>
-      <div>
+      <div className="sidebar-box">
         {artists?.artists.map(({ images, name }, index) => (
-          <div key={index}>
-            <img src={images[0].url} alt={name + " profile image"} />
+          <div key={index} className="sidebar-btn">
+            <div className="artist-image">
+              <img src={images[0].url} alt={name + " profile image"} />
+            </div>
           </div>
         ))}
       </div>
