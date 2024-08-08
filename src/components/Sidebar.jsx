@@ -40,7 +40,7 @@ function Sidebar() {
           <GoSearch />
         </div>
       </div>
-      <div className="sidebar-box">
+      <div className="sidebar-box artists">
         {artists?.artists.map(({ images, name }, index) => (
           <div key={index} className="sidebar-btn">
             <div className="artist-image">
