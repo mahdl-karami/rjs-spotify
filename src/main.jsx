@@ -1,11 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './fonts.css'
-import './index.css'
+//? react imports
+import React from "react";
+import ReactDOM from "react-dom/client";
+//? import route components
+import App from "./App.jsx";
+import Root from "./routes/Root.jsx";
+//? react router dom
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+//? global styles
+import "./fonts.css";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+//! create router
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/artist/:artistId",
+        element: <h1>Artist Page</h1>
+      }
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
