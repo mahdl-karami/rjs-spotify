@@ -8,6 +8,7 @@
   line-height: 1.5;
   font-weight: 400;
   background: var(--mainBG);
+  color: var(--mainText);
   /* 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -39,7 +40,7 @@
   box-sizing: border-box;
 }
 body {
-  max-width: 1200px;
+  max-width: clamp(1px, calc(100vw - 1rem), 1200px);
   margin: auto;
 }
 /* end global style */
