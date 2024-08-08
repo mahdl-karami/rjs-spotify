@@ -5,13 +5,13 @@ import ACCESS_TOKEN from "./services/accessToken";
 //? import helpers
 import setCookie from "./helpers/setCookie";
 import getCookie from "./helpers/getCookie";
-// import ARTISTS from "./services/artists";
 
 function App() {
   //! set states
   const [accessToken, setAccessToken] = useState(getCookie("accessToken"));
-  // const [artists, setArtists] = useState([]);
-  //! fetch access token from accounts.spotify.com/api/token or use from cookies
+  const [loading, setLoading] = useState(!accessToken);
+  const [err, setErr] = useState(null);
+  //! fetch access token || use from cookies
   useEffect(() => {
     if (accessToken) {
       console.log("accessToken is ready");
@@ -23,29 +23,24 @@ function App() {
         .then((res) => res.json())
         .then((json) => {
           setAccessToken(json.access_token);
+          setLoading(false);
           setCookie("accessToken", json.access_token);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => setErr(err));
     }
   }, []);
-  // //! fetch artists data from spotify api
-  // useEffect(() => {
-  //   if (accessToken) {
-  //     const { URL, DATA } = ARTISTS;
-  //     fetch(URL, {
-  //       ...DATA,
-  //     })
-  //       .then((res) => res.json())
-  //       .then((json) => setArtists(json))
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [accessToken]);
   //! jsx
+  if (err) {
+    return <h2>we Have Err : {err.toString()}</h2>;
+  }
+  if (loading) {
+    return <h2>Loading ... (fetch access token)</h2>;
+  }
   return (
-    <div>
-      App اب
-      <button onClick={() => console.log(accessToken)}>x</button>
-    </div>
+    <>
+      <h1>Spotify</h1>
+      <button onClick={() => console.log(loading)}>give me log</button>
+    </>
   );
 }
 
