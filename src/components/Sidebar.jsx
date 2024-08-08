@@ -1,5 +1,9 @@
+//? import hooks
 import { useEffect, useState } from "react";
+//? import services
 import ARTISTS from "../services/artists";
+//? import icons
+import { GoSearch, GoHome } from "react-icons/go";
 
 function Sidebar() {
   const [artists, setArtists] = useState([]);
@@ -28,8 +32,17 @@ function Sidebar() {
   }
   return (
     <div>
-      <h3>side bar</h3>
-      <button onClick={() => console.log(artists)}>give me artists</button>
+      <div>
+        <GoHome />
+        <GoSearch />
+      </div>
+      <div>
+        {artists?.artists.map(({ images, name }, index) => (
+          <div key={index}>
+            <img src={images[0].url} alt={name + " profile image"} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
