@@ -44,9 +44,22 @@ body {
 }
 /* end global style */
 
+#root {
+  display: flex;
+  justify-content: space-between;
+}
+main {
+  background: red;
+  width: calc(100% - calc(2.1rem + 48px));
+  height: calc(100vh - 1rem);
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  background: var(--primary);
+}
+
 /* start sidebar */
 .sidebar {
-  position: fixed;
+  width: calc(1.6rem + 48px);
   min-height: 100vh;
   background: transparent;
   margin-right: 0.5rem;
@@ -65,7 +78,7 @@ body {
     font-size: 38px;
   }
 }
-.artists{
+.artists {
   height: calc(100vh - calc(3rem + 96px));
 }
 .sidebar-btn {

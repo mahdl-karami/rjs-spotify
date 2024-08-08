@@ -6,11 +6,13 @@ function Root() {
   return (
     <>
       <Sidebar />
-      <h1>Root Page</h1>
-      <button>
-        <Link to={`/artist/1wJm5nKEUlhdV48hMMwzAm`}>Artist Page</Link>
-      </button>
-      <Outlet />
+      <main>
+        <h1>Root Page</h1>
+        <button>
+          <Link to={`/artist/1wJm5nKEUlhdV48hMMwzAm`}>Artist Page</Link>
+        </button>
+        <Outlet />
+      </main>
     </>
   );
 }
