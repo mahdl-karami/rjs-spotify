@@ -16,6 +16,7 @@ function TracksTable({ artistId }) {
   useEffect(() => {
     const { URL, DATA } = TRACKS(artistId);
     setTopTracks([]);
+    setShowMore(false)
     fetch(URL, { ...DATA })
       .then((res) => res.json())
       .then((json) => {
