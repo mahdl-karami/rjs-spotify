@@ -130,6 +130,12 @@ main {
 }
 .artists {
   height: calc(100vh - calc(3rem + 96px));
+  overflow-y: scroll;
+}
+/*! edit sidebar scroll bar */
+.artists::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
 }
 .sidebar-btn {
   margin: 0.2rem 0.4rem;
