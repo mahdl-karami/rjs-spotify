@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TRACKS from "../services/topTracks";
+import timeCalculator from "../helpers/timeCalculator";
 
 function TracksTable({ artistId }) {
   const [topTracks, setTopTracks] = useState([]);
@@ -23,14 +24,14 @@ function TracksTable({ artistId }) {
       {loading && <></>}
       {!loading && !err && (
         <div className="tracks-table">
-          {topTracks?.map((track, index) => (
+          {topTracks?.map(({ album, name, duration_ms }, index) => (
             <div key={index} className="track">
               <div>
                 <p>{index + 1}</p>
-                <img src={track.album.images[2].url} alt="" />
-                <h4>{track.name}</h4>
+                <img src={album.images[2].url} alt="" />
+                <h4>{name}</h4>
               </div>
-              <p>5:55</p>
+              <p>{timeCalculator(duration_ms)}</p>
             </div>
           ))}
         </div>
