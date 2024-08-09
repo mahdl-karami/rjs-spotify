@@ -201,4 +201,13 @@ main {
 .track:hover {
   background: var(--secondary);
 }
+.show-more {
+  display: inline-block;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: opacity .4s linear;
+  &:hover{
+    opacity: 70%;
+  }
+}
 /* end artist profile */

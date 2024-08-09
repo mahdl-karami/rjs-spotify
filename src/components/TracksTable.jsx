@@ -8,6 +8,8 @@ import timeCalculator from "../helpers/timeCalculator";
 function TracksTable({ artistId }) {
   //! set states
   const [topTracks, setTopTracks] = useState([]);
+  const [visibleTracks, setVisibleTracks] = useState([]);
+  const [showMore, setShowMore] = useState(false);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
   //! fetch artist top tracks (top 10)
@@ -22,6 +24,15 @@ function TracksTable({ artistId }) {
       })
       .catch((err) => setErr(err));
   }, [artistId]);
+  //!
+  useEffect(() => {
+    if (!showMore) {
+      const newTopTracks = [...topTracks];
+      setVisibleTracks(newTopTracks.splice(0, 5));
+    } else {
+      setVisibleTracks(topTracks);
+    }
+  }, [showMore, topTracks]);
   //! jsx
   return (
     <>
@@ -32,7 +43,7 @@ function TracksTable({ artistId }) {
       {/* //! success */}
       {!loading && !err && (
         <div className="tracks-table">
-          {topTracks?.map(({ album, name, duration_ms }, index) => (
+          {visibleTracks?.map(({ album, name, duration_ms }, index) => (
             <div key={index} className="track">
               <div>
                 <p>{index + 1}</p>
@@ -42,6 +53,10 @@ function TracksTable({ artistId }) {
               <p>{timeCalculator(duration_ms)}</p>
             </div>
           ))}
+          {/* <button onClick={() => console.log(showMore)}>show log</button> */}
+          <p onClick={() => setShowMore((prevS) => !prevS)} className="show-more">
+            {showMore ? "Show less" : "See more"}
+          </p>
         </div>
       )}
     </>
