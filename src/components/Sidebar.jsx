@@ -10,23 +10,20 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
+  //! set states
   const [artists, setArtists] = useState([]);
-  const [loading, setLoading] = useState(!artists.artists);
+  const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  //! fetch artists profiles
   useEffect(() => {
-    if (artists.length) {
-      console.log("artists is ready");
-    } else {
-      setLoading(true);
-      const { URL, DATA } = ARTISTS;
-      fetch(URL, { ...DATA })
-        .then((res) => res.json())
-        .then((json) => {
-          setArtists(json);
-          setLoading(false);
-        })
-        .catch((err) => setErr(err));
-    }
+    const { URL, DATA } = ARTISTS;
+    fetch(URL, { ...DATA })
+      .then((res) => res.json())
+      .then((json) => {
+        setArtists(json);
+        setLoading(false);
+      })
+      .catch((err) => setErr(err));
   }, []);
   //! jsx
   return (

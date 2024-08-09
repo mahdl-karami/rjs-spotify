@@ -10,7 +10,7 @@ function App() {
   //! set states
   const [accessToken, setAccessToken] = useState(getCookie("accessToken"));
   const [loading, setLoading] = useState(!accessToken);
-  const [err, setErr] = useState(null);
+  const [err, setErr] = useState(false);
   //! fetch access token || use from cookies
   useEffect(() => {
     if (accessToken) {

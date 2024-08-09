@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+//? import hooks
+import { useEffect, useState } from "react";
+//? import services
 import TRACKS from "../services/topTracks";
+//? import helpers
 import timeCalculator from "../helpers/timeCalculator";
 
 function TracksTable({ artistId }) {
+  //! set states
   const [topTracks, setTopTracks] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  //! fetch artist top tracks (top 10)
   useEffect(() => {
-    setLoading(true);
     const { URL, DATA } = TRACKS(artistId);
     setTopTracks([]);
     fetch(URL, { ...DATA })
@@ -18,10 +22,14 @@ function TracksTable({ artistId }) {
       })
       .catch((err) => setErr(err));
   }, [artistId]);
+  //! jsx
   return (
     <>
+      {/* //! error */}
       {err && <p>Ops, Error : {err}</p>}
+      {/* //! loading */}
       {loading && <></>}
+      {/* //! success */}
       {!loading && !err && (
         <div className="tracks-table">
           {topTracks?.map(({ album, name, duration_ms }, index) => (

@@ -1,31 +1,30 @@
+//? import hooks
 import { useEffect, useState } from "react";
+//? import iconst
 import { MdVerified } from "react-icons/md";
+//? import services
 import ARTIST from "../services/artist";
 
 function Banner({ artistId }) {
-
+  //! set states
   const [artist, setArtist] = useState([]);
-  const [loading, setLoading] = useState(!artist.length);
+  const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
-
+  //! fetch artist profile
   useEffect(() => {
-    if (artist.length) {
-      console.log("artist is ready");
-    } else {
-      setLoading(true);
-      const { URL, DATA } = ARTIST(artistId);
-      fetch(URL, { ...DATA })
-        .then((res) => res.json())
-        .then((json) => {
-          setArtist(json);
-          setLoading(false);
-        })
-        .catch((err) => setErr(err));
-    }
+    const { URL, DATA } = ARTIST(artistId);
+    fetch(URL, { ...DATA })
+      .then((res) => res.json())
+      .then((json) => {
+        setArtist(json);
+        setLoading(false);
+      })
+      .catch((err) => setErr(err));
   }, [artistId]);
-
+  //! jsx
   return (
     <div className="banner">
+      {/* //! error */}
       {err && (
         <>
           <div className="banner-image banner-loading"></div>
@@ -36,6 +35,7 @@ function Banner({ artistId }) {
           </div>
         </>
       )}
+      {/* //! loading */}
       {loading && (
         <>
           <div className="banner-image banner-loading"></div>
@@ -46,6 +46,7 @@ function Banner({ artistId }) {
           </div>
         </>
       )}
+      {/* //! success */}
       {!loading && !err && (
         <>
           <div className="banner-image">
