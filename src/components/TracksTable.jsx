@@ -24,11 +24,11 @@ function TracksTable({ artistId }) {
       {!loading && !err && (
         <div className="tracks-table">
           {topTracks?.map((track, index) => (
-            <div key={index}>
-              <p>{index + 1}</p>
+            <div key={index} className="track">
               <div>
+                <p>{index + 1}</p>
                 <img src={track.album.images[2].url} alt="" />
-                <h3>{track.name}</h3>
+                <h4>{track.name}</h4>
               </div>
               <p>5:55</p>
             </div>

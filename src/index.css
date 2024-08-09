@@ -180,5 +180,31 @@ main {
 .tracks-table {
   height: calc(calc(100vh - 1rem) - 320px);
   overflow-y: scroll;
+  padding: 1.4rem .5rem;
+}
+.track {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    p{
+      width: 30px;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+    }
+  }
+}
+.track:hover{
+  background: var(--secondary);
 }
 /* end artist profile */
