@@ -12,11 +12,7 @@
   font-weight: 400;
   background: var(--mainBG);
   color: var(--mainText);
-  /* 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,11 +20,15 @@
 }
 
 @media (prefers-color-scheme: light) {
-  /* :root {
-    color: #213547;
-    background-color: #ffffff;
+  :root {
+    --mainBG: #ffffff;
+    --mainText: #0f0f0fd1;
+    --primary: #d6d6d6;
+    --secondary: #a1a1a1;
+    --scroll-bg: #ffffff00;
+    --scroll-toggle: #7e7e7e;
+    --spotify-green: #19cc58;
   }
-  */
 }
 
 /* start global style */
@@ -58,9 +58,6 @@ a {
   color: var(--mainText);
   text-decoration: none;
   transition: opacity 0.3s linear;
-  &:hover {
-    opacity: 70%;
-  }
 }
 /*! edit scroll bar */
 *::-webkit-scrollbar {
