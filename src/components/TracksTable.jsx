@@ -54,7 +54,6 @@ function TracksTable({ artistId }) {
               <p>{timeCalculator(duration_ms)}</p>
             </div>
           ))}
-          {/* <button onClick={() => console.log(showMore)}>show log</button> */}
           {visibleTracks.length ? (
             <p onClick={() => setShowMore((prevS) => !prevS)} className="show-more">
               {showMore ? "Show less" : "See more"}

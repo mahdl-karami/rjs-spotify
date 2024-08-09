@@ -11,6 +11,8 @@ function Banner({ artistId }) {
   const [artist, setArtist] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  //! destructuring artist
+  const { external_urls, name, images, followers } = artist;
   //! fetch artist profile
   useEffect(() => {
     setLoading(true);
@@ -52,14 +54,20 @@ function Banner({ artistId }) {
       {!loading && !err && (
         <>
           <div className="banner-image">
-            <img src={artist?.images[0].url} alt="" />
+            <a href={external_urls.spotify} target="_blank">
+              <img src={images[0].url} alt="" />
+            </a>
           </div>
           <div className="banner-text">
             <span>
               <MdVerified /> Verified Artist
             </span>
-            <h1>{artist?.name}</h1>
-            <p>Folowers : {followerConvertor(artist?.followers.total)}</p>
+            <h1>
+              <a href={external_urls.spotify} target="_blank">
+                {name}
+              </a>
+            </h1>
+            <p>Folowers : {followerConvertor(followers.total)}</p>
           </div>
         </>
       )}

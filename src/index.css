@@ -53,6 +53,10 @@ main {
   background: var(--primary);
   overflow: hidden;
 }
+a{
+  color: var(--mainText);
+  text-decoration: none;
+}
 /*! edit scroll bar */
 *::-webkit-scrollbar {
   height: 10px;
