@@ -5,7 +5,7 @@ const client = {
 };
 const { client_id, client_secret } = client;
 
-//? export fetch parameters
+//? create fetch parameters
 const ACCESS_TOKEN = {
   URL: `https://accounts.spotify.com/api/token?grant_type=client_credentials&client_id=${client_id}&client_secret=${client_secret}`,
   DATA: {

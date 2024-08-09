@@ -3,6 +3,7 @@
   --mainText: #fdfdfdd1;
   --primary: #181818;
   --secondary: #242424;
+  --danger: #ff0000(255, 0, 0);
 
   font-family: roboto, noto-naskh, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,11 +14,11 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
+  */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (prefers-color-scheme: light) {
@@ -25,12 +26,7 @@
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  } */
+  */
 }
 
 /* start global style */
@@ -43,14 +39,11 @@ body {
   max-width: clamp(1px, calc(100vw - 1rem), 1200px);
   margin: auto;
 }
-/* end global style */
-
 #root {
   display: flex;
   justify-content: space-between;
 }
 main {
-  background: red;
   width: calc(100% - calc(2.1rem + 48px));
   height: calc(100vh - 1rem);
   margin-top: 0.5rem;
@@ -58,12 +51,12 @@ main {
   background: var(--primary);
   overflow: hidden;
 }
+/* end global style */
 
 /* start sidebar */
 .sidebar {
   width: calc(1.6rem + 48px);
   min-height: 100vh;
-  background: transparent;
   margin-right: 0.5rem;
 }
 .sidebar-box {
@@ -74,7 +67,7 @@ main {
   margin-top: 0.5rem;
   border-radius: 10px;
   background: var(--primary);
-
+  /* sidebar icons */
   svg {
     color: var(--mainText) !important;
     font-size: 38px;
@@ -90,14 +83,16 @@ main {
 }
 .sidebar-loading {
   padding: 1rem;
+  /* loading icon */
   svg {
     animation: spin 4s infinite linear;
   }
 }
 .sidebar-error {
   padding: 1rem;
+  /* error icon */
   svg {
-    color: red !important;
+    color: var(--danger) !important;
   }
 }
 .artists {
@@ -133,8 +128,6 @@ main {
 /* end sidebar */
 
 /* start artist profile */
-.artist-profile {
-}
 .banner {
   width: 100%;
   height: 320px;
@@ -144,6 +137,7 @@ main {
   align-items: center;
   gap: 1.5rem;
   padding: 0 1.5rem;
+  box-shadow: 0px 13px 59px 16px var(--secondary);
 }
 .banner-image {
   position: relative;
@@ -180,7 +174,7 @@ main {
 .tracks-table {
   height: calc(calc(100vh - 1rem) - 320px);
   overflow-y: scroll;
-  padding: 1.4rem .5rem;
+  padding: 1.4rem 0.5rem;
 }
 .track {
   width: 100%;
@@ -194,7 +188,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    p{
+    p {
       width: 30px;
     }
     img {
@@ -204,7 +198,7 @@ main {
     }
   }
 }
-.track:hover{
+.track:hover {
   background: var(--secondary);
 }
 /* end artist profile */
