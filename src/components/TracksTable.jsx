@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import TRACKS from "../services/topTracks";
 //? import helpers
 import timeCalculator from "../helpers/timeCalculator";
+import openLink from "../helpers/openLink";
 
 function TracksTable({ artistId }) {
   //! set states
@@ -44,8 +45,8 @@ function TracksTable({ artistId }) {
       {/* //! success */}
       {!loading && !err && (
         <div className="tracks-table">
-          {visibleTracks?.map(({ album, name, duration_ms }, index) => (
-            <div key={index} className="track">
+          {visibleTracks?.map(({ album, name, duration_ms, external_urls: { spotify } }, index) => (
+            <div key={index} className="track" onClick={() => openLink(spotify)}>
               <div>
                 <p>{index + 1}</p>
                 <img src={album.images[2].url} alt="" />
