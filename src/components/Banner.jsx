@@ -12,6 +12,7 @@ function Banner({ artistId }) {
   const [err, setErr] = useState(false);
   //! fetch artist profile
   useEffect(() => {
+    setLoading(true)
     const { URL, DATA } = ARTIST(artistId);
     fetch(URL, { ...DATA })
       .then((res) => res.json())
