@@ -37,7 +37,7 @@ function Root() {
   }, []);
   return (
     <>
-      <Sidebar />
+      <Sidebar accessToken={accessToken} />
       <main>
         {loading && (
           <div>

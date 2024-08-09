@@ -9,22 +9,24 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 //? react router dom
 import { Link } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ accessToken }) {
   //! set states
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
   //! fetch artists profiles
   useEffect(() => {
-    const { URL, DATA } = ARTISTS;
-    fetch(URL, { ...DATA })
-      .then((res) => res.json())
-      .then((json) => {
-        setArtists(json);
-        setLoading(false);
-      })
-      .catch((err) => setErr(err));
-  }, []);
+    if (accessToken) {
+      const { URL, DATA } = ARTISTS;
+      fetch(URL, { ...DATA })
+        .then((res) => res.json())
+        .then((json) => {
+          setArtists(json);
+          setLoading(false);
+        })
+        .catch((err) => setErr(err));
+    }
+  }, [accessToken]);
   //! jsx
   return (
     <div className="sidebar">
