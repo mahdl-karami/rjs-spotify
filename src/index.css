@@ -6,7 +6,7 @@
   --danger: #ff0000(255, 0, 0);
   --scroll-bg: #ffffff00;
   --scroll-toggle: #3b3b3b;
-
+  --spotify-green: #3be276;
   font-family: roboto, noto-naskh, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -46,6 +46,7 @@ body {
   justify-content: space-between;
 }
 main {
+  position: relative;
   width: calc(100% - calc(2.1rem + 48px));
   height: calc(100vh - 1rem);
   margin-top: 0.5rem;
@@ -254,3 +255,12 @@ a {
   }
 }
 /* end artist profile */
+
+/* start loading */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* end loading */
