@@ -53,7 +53,7 @@ main {
   background: var(--primary);
   overflow: hidden;
 }
-a{
+a {
   color: var(--mainText);
   text-decoration: none;
 }

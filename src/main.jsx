@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //? global styles
 import "./fonts.css";
 import "./index.css";
+import "./responsive.css";
 
 //! create router
 const router = createBrowserRouter([
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/artist/:artistId",
-        element: <Artist />
-      }
+        element: <Artist />,
+      },
     ],
   },
 ]);

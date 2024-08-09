@@ -1,0 +1,30 @@
+@media only screen and (max-width: 650px) {
+  .banner{
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .banner-image{
+    width: 160px;
+    height: 160px;
+    img{
+      width: 160px;
+    }
+  }
+  .banner-text{
+    text-align: center;
+    font-size: 85%;
+    h1{
+      padding: .5rem 0;
+    }
+  }
+  .tracks-table{
+    font-size: 85%;
+  }
+  .track{
+    div{
+      p{
+        width: 20px;
+      }
+    }
+  }
+}
