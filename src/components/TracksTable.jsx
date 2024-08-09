@@ -16,7 +16,7 @@ function TracksTable({ artistId }) {
   useEffect(() => {
     const { URL, DATA } = TRACKS(artistId);
     setTopTracks([]);
-    setShowMore(false)
+    setShowMore(false);
     fetch(URL, { ...DATA })
       .then((res) => res.json())
       .then((json) => {
@@ -40,7 +40,7 @@ function TracksTable({ artistId }) {
       {/* //! error */}
       {err && <p>Ops, Error : {err}</p>}
       {/* //! loading */}
-      {loading && <></>}
+      {loading && <>loading ...</>}
       {/* //! success */}
       {!loading && !err && (
         <div className="tracks-table">
@@ -55,9 +55,11 @@ function TracksTable({ artistId }) {
             </div>
           ))}
           {/* <button onClick={() => console.log(showMore)}>show log</button> */}
-          <p onClick={() => setShowMore((prevS) => !prevS)} className="show-more">
-            {showMore ? "Show less" : "See more"}
-          </p>
+          {visibleTracks.length ? (
+            <p onClick={() => setShowMore((prevS) => !prevS)} className="show-more">
+              {showMore ? "Show less" : "See more"}
+            </p>
+          ) : null}
         </div>
       )}
     </>
