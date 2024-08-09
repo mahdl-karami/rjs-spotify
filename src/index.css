@@ -6,7 +6,7 @@
   --danger: #ff0000(255, 0, 0);
   --scroll-bg: #ffffff00;
   --scroll-toggle: #3b3b3b;
-  --spotify-green: #3be275d8;
+  --spotify-green: #3be275;
   font-family: roboto, noto-naskh, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -57,7 +57,7 @@ main {
 a {
   color: var(--mainText);
   text-decoration: none;
-  transition: opacity .3s linear;
+  transition: opacity 0.3s linear;
   &:hover {
     opacity: 70%;
   }
@@ -200,7 +200,7 @@ a {
   font-size: 1.3rem;
   margin: auto;
   text-transform: capitalize;
-  a{
+  a {
     color: var(--spotify-green);
   }
 }
@@ -211,12 +211,12 @@ a {
   width: 100%;
   height: 320px;
   display: flex;
-  background-color: var(--spotify-green);
+  background-color: var(--secondary);
   display: flex;
   align-items: center;
   gap: 1.5rem;
   padding: 0 1.5rem;
-  box-shadow: 0px 13px 59px 16px var(--spotify-green);
+  box-shadow: 0px 13px 59px 16px var(--secondary);
 }
 .banner-image {
   position: relative;
@@ -233,8 +233,8 @@ a {
   }
 }
 .banner-loading {
-  background: rgb(59,226,117);
-  background: linear-gradient(315deg, rgba(59,226,117,1) 0%, rgba(31,31,31,1) 100%);
+  background: var(--secondary);
+  background: linear-gradient(315deg, var(--secondary), var(--primary));
 }
 .banner-text {
   span {
