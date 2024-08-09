@@ -159,6 +159,10 @@ main {
     transform: translate(-50%, -50%);
   }
 }
+.banner-loading {
+  background: rgb(107, 107, 107);
+  background: linear-gradient(315deg, rgba(107, 107, 107, 1) 0%, rgba(31, 31, 31, 1) 100%);
+}
 .banner-text {
   span {
     display: flex;
