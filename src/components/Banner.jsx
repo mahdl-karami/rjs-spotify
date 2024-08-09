@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MdVerified } from "react-icons/md";
 //? import services
 import ARTIST from "../services/artist";
+import followerConvertor from "../helpers/followerConvertor";
 
 function Banner({ artistId }) {
   //! set states
@@ -12,7 +13,7 @@ function Banner({ artistId }) {
   const [err, setErr] = useState(false);
   //! fetch artist profile
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const { URL, DATA } = ARTIST(artistId);
     fetch(URL, { ...DATA })
       .then((res) => res.json())
@@ -58,7 +59,7 @@ function Banner({ artistId }) {
               <MdVerified /> Verified Artist
             </span>
             <h1>{artist?.name}</h1>
-            <p>Folowers : {artist?.followers.total}</p>
+            <p>Folowers : {followerConvertor(artist?.followers.total)}</p>
           </div>
         </>
       )}
