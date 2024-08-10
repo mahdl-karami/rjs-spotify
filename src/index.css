@@ -238,13 +238,16 @@ a {
     display: flex;
     align-items: center;
     gap: 5px;
-    svg {
-      font-size: 1.6rem;
-      color: #4cb3ff;
-    }
   }
   h1 {
     padding: 1.2rem 0;
+    svg{
+      display: none;
+    }
+  }
+  svg {
+    font-size: 1.6rem;
+    color: #4cb3ff;
   }
 }
 .tracks-table {

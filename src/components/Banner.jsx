@@ -60,12 +60,14 @@ function Banner({ artistId }) {
           </div>
           <div className="banner-text">
             <span>
-              <MdVerified /> Verified Artist
+              <MdVerified />
+              <p>Verified Artist</p>
             </span>
             <h1>
               <a href={external_urls.spotify} target="_blank">
                 {name}
               </a>
+              <MdVerified />
             </h1>
             <p>Folowers : {followerConvertor(followers.total)}</p>
           </div>

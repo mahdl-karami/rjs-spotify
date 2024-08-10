@@ -1,29 +1,43 @@
 @media only screen and (max-width: 650px) {
-  .banner{
+  .banner {
     flex-direction: column;
     padding: 1rem;
   }
-  .banner-image{
+  .banner-image {
     width: 160px;
     height: 160px;
-    img{
+    img {
       width: 160px;
     }
   }
-  .banner-text{
+  .banner-text {
     text-align: center;
     font-size: 85%;
-    h1{
-      padding: .5rem 0;
+    h1 {
+      padding: 0.5rem 0;
     }
   }
-  .tracks-table{
+  .tracks-table {
     font-size: 85%;
   }
-  .track{
-    div{
-      p{
+  .track {
+    div {
+      p {
         width: 20px;
+      }
+    }
+  }
+  .banner-text {
+    position: relative;
+    span {
+      display: none;
+    }
+    h1 {
+      padding: 0 0 0.5rem;
+      display: flex;
+      align-items: center;
+      svg {
+        display: inline;
       }
     }
   }
