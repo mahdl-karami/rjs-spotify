@@ -17,7 +17,7 @@ function Sidebar({ accessToken }) {
   //! fetch artists profiles
   useEffect(() => {
     if (accessToken) {
-      const { URL, DATA } = ARTISTS;
+      const { URL, DATA } = ARTISTS(accessToken);
       fetch(URL, { ...DATA })
         .then((res) => res.json())
         .then((json) => {
