@@ -1,7 +1,8 @@
 //? import hooks
 import { useEffect, useState } from "react";
-//? import iconst
+//? import icons
 import { MdVerified } from "react-icons/md";
+import { BiSolidError } from "react-icons/bi";
 //? import services
 import ARTIST from "../services/artist";
 import followerConvertor from "../helpers/followerConvertor";
@@ -29,29 +30,38 @@ function Banner({ artistId }) {
   return (
     <div className="banner">
       {/* //! error */}
-      {err && (
+      {err ? (
         <>
+          {console.log(err)}
           <div className="banner-image banner-loading"></div>
           <div className="banner-text">
-            <span>Oh Nooo !</span>
-            <h1>{"error : " + err}</h1>
-            <p>Please report to me : mo.mahdi.ka@gmail.com</p>
+            <span>
+              <BiSolidError />
+              <p>Error detected</p>
+            </span>
+            <h1>Please try again</h1>
+            <p>Report to me : mo.mahdi.ka@gmail.com</p>
           </div>
         </>
-      )}
+      ) : null}
       {/* //! loading */}
-      {loading && (
+      {loading ? (
         <>
-          <div className="banner-image banner-loading"></div>
+          <div className="banner-image banner-loading">
+            <div></div>
+          </div>
           <div className="banner-text">
-            <span>Pleas Wait ...</span>
-            <h1>Loading Data ...</h1>
-            <p>Folowers : ???</p>
+            <span>
+              <MdVerified />
+              <p>Verified Artist</p>
+            </span>
+            <h1>Loading artist ...</h1>
+            <p>Folowers : </p>
           </div>
         </>
-      )}
+      ) : null}
       {/* //! success */}
-      {!loading && !err && (
+      {!loading && !err ? (
         <>
           <div className="banner-image">
             <a href={external_urls.spotify} target="_blank">
@@ -72,7 +82,7 @@ function Banner({ artistId }) {
             <p>Folowers : {followerConvertor(followers.total)}</p>
           </div>
         </>
-      )}
+      ) : null}
     </div>
   );
 }

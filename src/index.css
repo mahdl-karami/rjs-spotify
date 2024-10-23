@@ -233,6 +233,21 @@ a {
 .banner-loading {
   background: var(--secondary);
   background: linear-gradient(315deg, var(--secondary), var(--primary));
+  div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: dashed var(--spotify-green) 5px;
+    animation: rotation 6s linear infinite;
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .banner-text {
   span {
