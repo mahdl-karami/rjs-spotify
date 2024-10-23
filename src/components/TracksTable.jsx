@@ -5,6 +5,9 @@ import TRACKS from "../services/topTracks";
 //? import helpers
 import timeCalculator from "../helpers/timeCalculator";
 import openLink from "../helpers/openLink";
+// ? import components
+import Error from "./Error";
+import Loading from "./Loading";
 
 function TracksTable({ artistId }) {
   //! set states
@@ -24,7 +27,10 @@ function TracksTable({ artistId }) {
         setTopTracks(json?.tracks);
         setLoading(false);
       })
-      .catch((err) => setErr(err));
+      .catch((err) => {
+        setErr(err);
+        setLoading(false);
+      });
   }, [artistId]);
   //!
   useEffect(() => {
@@ -39,11 +45,11 @@ function TracksTable({ artistId }) {
   return (
     <>
       {/* //! error */}
-      {err && <p>Ops, Error : {err}</p>}
+      {err ? <Error text={"artist musics"} error={err} /> : null}
       {/* //! loading */}
-      {loading && <>loading ...</>}
+      {loading ? <Loading /> : null}
       {/* //! success */}
-      {!loading && !err && (
+      {!loading && !err ? (
         <div className="tracks-table">
           {visibleTracks?.map(({ album, name, duration_ms, external_urls: { spotify } }, index) => (
             <div key={index} className="track" onClick={() => openLink(spotify)}>
@@ -61,7 +67,7 @@ function TracksTable({ artistId }) {
             </p>
           ) : null}
         </div>
-      )}
+      ) : null}
     </>
   );
 }
