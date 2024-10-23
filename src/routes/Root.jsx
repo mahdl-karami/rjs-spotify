@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 //? import components (header, footer, sidebar and ...)
 import Sidebar from "../components/Sidebar";
+import Error from "../components/Error";
 //? import services
 import ACCESS_TOKEN from "../services/accessToken";
 //? import helpers
@@ -44,7 +45,7 @@ function Root() {
             <Loading />
           </div>
         )}
-        {err && <h1>Ops, Error : {err}</h1>}
+        {err && <Error text={"access token"} error={err} />}
         {!loading && !err && <Outlet />}
       </main>
     </>

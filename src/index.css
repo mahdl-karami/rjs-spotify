@@ -3,7 +3,8 @@
   --mainText: #fdfdfdd1;
   --primary: #181818;
   --secondary: #242424;
-  --danger: #ff0000(255, 0, 0);
+  --danger: #fd0606;
+  --alert: #ffea00;
   --scroll-bg: #ffffff00;
   --scroll-toggle: #3b3b3b;
   --spotify-green: #3be275;
@@ -241,7 +242,7 @@ a {
   }
   h1 {
     padding: 1.2rem 0;
-    svg{
+    svg {
       display: none;
     }
   }
@@ -299,3 +300,20 @@ a {
   transform: translate(-50%, -50%);
 }
 /* end loading */
+
+/* access token */
+.error {
+  margin: 3rem auto;
+  width: fit-content;
+  text-align: center;
+  svg {
+    font-size: 5em;
+    color: var(--alert);
+  }
+  h3 {
+    color: var(--danger);
+  }
+  p {
+    color: var(--spotify-green);
+  }
+}
