@@ -24,7 +24,10 @@ function Sidebar({ accessToken }) {
           setArtists(json);
           setLoading(false);
         })
-        .catch((err) => setErr(err));
+        .catch((err) => {
+          setErr(err);
+          setLoading(false)
+        });
     }
   }, [accessToken]);
   //! jsx

@@ -24,7 +24,10 @@ function Banner({ artistId }) {
         setArtist(json);
         setLoading(false);
       })
-      .catch((err) => setErr(err));
+      .catch((err) => {
+        setErr(err);
+        setLoading(false);
+      });
   }, [artistId]);
   //! jsx
   return (
