@@ -26,8 +26,11 @@ function Sidebar({ accessToken }) {
         })
         .catch((err) => {
           setErr(err);
-          setLoading(false)
+          setLoading(false);
         });
+    } else {
+      setLoading(false);
+      setErr("access token");
     }
   }, [accessToken]);
   //! jsx

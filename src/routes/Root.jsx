@@ -33,7 +33,10 @@ function Root() {
           setAccessToken(json.access_token);
           setCookie("accessToken", json.access_token);
         })
-        .catch((err) => setErr(err));
+        .catch((err) => {
+          setLoading(false)
+          setErr(err);
+        });
     }
   }, []);
   return (
